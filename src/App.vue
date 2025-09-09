@@ -1,11 +1,23 @@
 <script setup>
-import LoginForm from './components/LoginForm.vue';
+import Navbar from '@/components/Navbar.vue'
 </script>
 
 <template>
-  <LoginForm />
+  <div class="app-root">
+    <header>
+      <Navbar />
+    </header>
+
+    <main>
+      <router-view />
+    </main>
+  </div>
 </template>
 
-<style scoped>
-
+<style>
+.app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 </style>

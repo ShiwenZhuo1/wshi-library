@@ -1,17 +1,19 @@
 <template>
-  <section style="max-width:420px;margin:48px auto">
-    <h1>Firebase Login</h1>
+  <div class="d-flex flex-column align-items-center justify-content-center w-100 h-100">
+    <div class="mx-auto" style="max-width: 560px;">
+      <h1>Firebase Login</h1>
 
-    <p><input type="text" placeholder="Email" v-model.trim="email" /></p>
-    <p><input type="password" placeholder="Password" v-model="password" /></p>
-    <p>
-      <button @click="signin" :disabled="loading">
-        {{ loading ? 'Signing in…' : 'Sign in via Firebase' }}
-      </button>
-    </p>
+      <p><input type="text" placeholder="Email" v-model.trim="email" /></p>
+      <p><input type="password" placeholder="Password" v-model="password" /></p>
+      <p>
+        <button @click="signin" :disabled="loading">
+          {{ loading ? 'Signing in…' : 'Sign in via Firebase' }}
+        </button>
+      </p>
 
-    <p v-if="msg">{{ msg }}</p>
-  </section>
+      <p v-if="msg">{{ msg }}</p>
+    </div>
+  </div>
 </template>
 
 <script setup>

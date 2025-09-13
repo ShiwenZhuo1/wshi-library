@@ -3,6 +3,7 @@ import HomeView from '../view/HomeView.vue'
 import AboutView from '../view/AboutView.vue'
 import FirebaseSigninView from '../view/FirebaseSigninView.vue'
 import FirebaseLoginView from '@/view/FirebaseLoginView.vue'
+import AddBookView from '@/view/AddBookView.vue'
 
 const routes = [
   {
@@ -24,7 +25,13 @@ const routes = [
     path: '/about',
     name: 'About',
     component: AboutView
+  },
+  {
+    path: '/AddBook',
+    name: 'AddBook',
+    component: AddBookView
   }
+
 ]
 
 const router = createRouter({

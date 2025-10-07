@@ -21,7 +21,18 @@
             Add Book
         </RouterLink>
       </li>
-
+      <li class="nav-item">
+        <RouterLink to="/GetBookCount" class="nav-link" active-class="active">Get Book Count</RouterLink>
+      </li>
+      <li class="nav-item">
+        <RouterLink to="/WeatherCheck" class="nav-link" active-class="active">Get Weather</RouterLink>
+      </li>
+      <li class="nav-item">
+        <RouterLink to="/CountBookAPI" class="nav-link" active-class="active">Count Book API</RouterLink>
+      </li>
+      <li class="nav-item">
+        <RouterLink to="/GetAllBooks" class="nav-link" active-class="active">Get All Books</RouterLink>
+      </li>
       <li class="ms-auto d-flex align-items-center" v-if="loggedIn">
         <span class="me-2 small text-muted">👤 {{ userEmail }}</span>
         <button class="btn btn-outline-danger btn-sm" @click="logout">Logout</button>

@@ -26,10 +26,10 @@
 import { ref } from 'vue';
 import db from '../Firebase/init.js';
 import { collection, addDoc } from 'firebase/firestore';
-
 import BookList from '../components/BookList.vue';
 
 export default {
+  components: { BookList },
   setup() {
     const isbn = ref('');
     const name = ref('');
@@ -43,7 +43,7 @@ export default {
         }
         await addDoc(collection(db, 'books'), {
           isbn: isbnnumber,
-          name: name.value
+          name: name.value   // Cloud Function 会把字符串字段统一转成大写
         });
         isbn.value = '';
         name.value = '';
@@ -53,14 +53,7 @@ export default {
       }
     };
 
-    return {
-      isbn,
-      name,
-      addBook
-    };
-  },
-  components: {
-    BookList
+    return { isbn, name, addBook };
   }
 };
 </script>

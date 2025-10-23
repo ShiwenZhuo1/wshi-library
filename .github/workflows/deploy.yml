@@ -1,0 +1,40 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        # 没有 package-lock.json 就把这行改成：npm install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      # 避免刷新二级路由 404（history 模式）
+      - name: SPA fallback (copy index.html to 404.html)
+        run: cp dist/index.html dist/404.html
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: dist
